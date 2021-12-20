@@ -20,7 +20,7 @@
         /// <summary>
         /// Represents finding an object in a table.
         /// </summary>
-        public UserData Find(string id)
+        public UserData Search(string id)
         {
             var i = 0;
             do
@@ -34,9 +34,9 @@
         }
         
         /// <summary>
-        /// Represents inserting an object to a table.
+        /// Represents adding an object to a table.
         /// </summary>
-        public int Insert(UserData data)
+        public int Add(UserData data)
         {
             var i = 0;
             do
