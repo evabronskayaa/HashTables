@@ -69,8 +69,6 @@
 
         /// <summary>
         /// Represents getting a hash code.
-        /// This calculation was taken from the Internet, since I could not make a suitable one myself.
-        /// It will be great if you come up with this ☜(ﾟヮﾟ☜)
         /// </summary>
         private int CalculateHash(string key, int i) => key[0] - 'a' + i;
     }
