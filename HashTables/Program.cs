@@ -7,9 +7,9 @@ namespace HashTables
     {
         static void Main(string[] args)
         {
-            var size = 10000;
+            var size = 1000;
             var table = new HashTable(size);
-            var count = new Random().Next(0, size);
+            var count = 10;
             Console.WriteLine("Generating...");
             
             var users = new List<UserData>();
@@ -30,12 +30,17 @@ namespace HashTables
                 cnt += e.Id == users[i].Id && users[i].RegDate == e.RegDate ? 1 : 0;
                 Console.BackgroundColor = e.Id == users[i].Id && users[i].RegDate == e.RegDate ? 
                     ConsoleColor.Green : ConsoleColor.Red; 
-                Console.WriteLine($"{e.Id} - {e.RegDate} \t\t\t\t| {users[i].Id} {users[i].RegDate}");
+                Console.WriteLine($"{e.Id} - {e.RegDate} \t\t\t\t| {users[i].Id} - {users[i].RegDate}");
+                
+                
             }
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine($"{cnt}/{count} ({cnt*100.0/count}%)");
+            Console.WriteLine($"The largest cluster:{table.GetLargestCluster()}");
             Console.ReadLine();
         }
+
+        
     }
 }

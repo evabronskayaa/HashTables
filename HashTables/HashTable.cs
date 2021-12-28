@@ -1,13 +1,13 @@
-﻿namespace HashTables
+﻿using System;
+using System.Collections;
+
+namespace HashTables
 {
     /// <summary>
     /// Represents a HashTable.
     /// </summary>
     public class HashTable
     {
-        /// <summary>
-        /// I suggest filling the table with user data.
-        /// </summary>
         private readonly UserData[] _cells;
         private readonly int _size;
 
@@ -70,6 +70,31 @@
         /// <summary>
         /// Represents getting a hash code.
         /// </summary>
-        private int CalculateHash(string key, int i) => key[0] - 'a' + i;
+        private int CalculateHash(string key, int i)
+        {
+            return key[0] - 'a' + i;
+        }
+
+        public int GetLargestCluster()
+        {
+            int i = 0;
+            int max = 0;
+            foreach (var cell in _cells)
+            {
+                if (cell == null)
+                {
+                    i++;
+                }
+                else 
+                {
+                    if (i > max) max = i;
+                    i = 0;
+                }
+            }
+
+            if (i > max) max = i;
+
+            return max;
+        }
     }
 }
